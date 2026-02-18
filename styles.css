@@ -1,0 +1,138 @@
+:root {
+  --canvas: 500px;
+  --tile-width: 121px;
+  --tile-height: 177px;
+  --tile-radius: 20px;
+  --tile-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25),
+    -3px -3px 7px 0 rgba(0, 0, 0, 0.41) inset;
+  --plate-bg: rgba(255, 255, 255, 0.82);
+  --plate-radius: 6px;
+  --plate-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+
+  --title-color: #036014;
+  --subtitle-color: #5B0360;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  font-family: Roboto, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+.stage {
+  width: var(--canvas);
+  height: var(--canvas);
+  position: relative;
+  overflow: hidden;
+  background-image: url("assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.stack {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.title-plate,
+.subtitle-plate {
+  position: relative;
+  padding: 6px 20px;
+  background: var(--plate-bg);
+  border-radius: var(--plate-radius);
+  box-shadow: var(--plate-shadow);
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.title-plate {
+  color: var(--title-color);
+  font-size: 100px;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tile {
+  width: var(--tile-width);
+  height: var(--tile-height);
+  background-color: #ffffff;
+  border-radius: var(--tile-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--tile-shadow);
+}
+
+.tile span {
+  font-family: Oswald, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 125px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  color: #000000;
+}
+
+.subtitle-plate {
+  color: var(--subtitle-color);
+  font-size: 100px;
+  font-weight: 900;
+  font-style: normal;
+  line-height: normal;
+}
+
+.pulse {
+  animation: pulse 560ms cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 540px) {
+  :root {
+    --canvas: 92vw;
+    --tile-width: 24vw;
+    --tile-height: 34vw;
+  }
+
+  .title-plate,
+  .subtitle-plate {
+    font-size: clamp(36px, 12vw, 78px);
+    padding: 6px 16px;
+  }
+
+  .stack {
+    gap: 6vw;
+  }
+
+  .tile span {
+    font-size: clamp(48px, 16vw, 96px);
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador de días</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="stage" role="img" aria-label="Contador 500x500">
+      <div class="stack">
+        <div class="title-plate">Faltan</div>
+
+        <div class="count" aria-live="polite" aria-atomic="true"></div>
+
+        <div class="subtitle-plate"><span id="dayWord">días</span></div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
